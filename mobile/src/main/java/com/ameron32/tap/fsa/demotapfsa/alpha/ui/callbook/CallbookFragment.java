@@ -1,4 +1,4 @@
-package com.ameron32.tap.fsa.demotapfsa.alpha.callbook;
+package com.ameron32.tap.fsa.demotapfsa.alpha.ui.callbook;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;

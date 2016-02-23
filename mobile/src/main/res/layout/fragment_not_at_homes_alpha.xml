@@ -6,7 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".alpha.notathomes.NotAtHomesFragment"
+    tools:context=".alpha.ui.notathomes.NotAtHomesFragment"
     tools:showIn="@layout/activity_not_at_homes_alpha">
 
 

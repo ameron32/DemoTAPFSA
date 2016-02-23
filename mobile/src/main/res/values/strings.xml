@@ -1,9 +1,10 @@
 <resources>
-    <string name="app_name">DemoTAPFSA</string>
-    <string name="title_activity_territory">TerritoryActivity</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_callbook">CallbookActivity</string>
-    <string name="title_activity_not_at_homes">NotAtHomesActivity</string>
-    <string name="title_activity_reports">ReportsActivity</string>
-    <string name="section_format">Hello World from section: %1$d</string>
+  <string name="app_name">DemoTAPFSA</string>
+  <string name="title_activity_territory">TerritoryActivity</string>
+  <string name="action_settings">Settings</string>
+  <string name="title_activity_callbook">CallbookActivity</string>
+  <string name="title_activity_not_at_homes">NotAtHomesActivity</string>
+  <string name="title_activity_reports">ReportsActivity</string>
+  <string name="section_format">Hello World from section: %1$d</string>
+  <string name="title_activity_add_territory">AddTerritoryActivity</string>
 </resources>

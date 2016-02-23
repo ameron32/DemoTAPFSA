@@ -1,4 +1,4 @@
-package com.ameron32.tap.fsa.demotapfsa.alpha.notathomes;
+package com.ameron32.tap.fsa.demotapfsa.alpha.ui.notathomes;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;

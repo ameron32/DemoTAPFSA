@@ -3,19 +3,16 @@ package com.ameron32.tap.fsa.demotapfsa.alpha;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.ameron32.tap.fsa.demotapfsa.R;
-import com.ameron32.tap.fsa.demotapfsa.Util;
-import com.ameron32.tap.fsa.demotapfsa.alpha.callbook.CallbookActivity;
-import com.ameron32.tap.fsa.demotapfsa.alpha.notathomes.NotAtHomesActivity;
-import com.ameron32.tap.fsa.demotapfsa.alpha.reports.ReportsActivity;
-import com.ameron32.tap.fsa.demotapfsa.alpha.territory.TerritoryActivity;
+import com.ameron32.tap.fsa.demotapfsa.alpha.ui.callbook.CallbookActivity;
+import com.ameron32.tap.fsa.demotapfsa.alpha.ui.notathomes.NotAtHomesActivity;
+import com.ameron32.tap.fsa.demotapfsa.alpha.ui.reports.ReportsActivity;
+import com.ameron32.tap.fsa.demotapfsa.alpha.ui.selectterritory.TerritoryActivity;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 

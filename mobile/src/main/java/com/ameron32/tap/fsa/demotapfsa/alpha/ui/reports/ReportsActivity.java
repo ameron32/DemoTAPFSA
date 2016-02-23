@@ -1,4 +1,4 @@
-package com.ameron32.tap.fsa.demotapfsa.alpha.reports;
+package com.ameron32.tap.fsa.demotapfsa.alpha.ui.reports;
 
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;

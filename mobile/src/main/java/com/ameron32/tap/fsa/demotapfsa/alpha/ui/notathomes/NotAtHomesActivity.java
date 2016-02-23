@@ -1,4 +1,4 @@
-package com.ameron32.tap.fsa.demotapfsa.alpha.callbook;
+package com.ameron32.tap.fsa.demotapfsa.alpha.ui.notathomes;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -9,12 +9,12 @@ import android.view.View;
 
 import com.ameron32.tap.fsa.demotapfsa.R;
 
-public class CallbookActivity extends AppCompatActivity {
+public class NotAtHomesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_callbook_alpha);
+        setContentView(R.layout.activity_not_at_homes_alpha);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -22,7 +22,7 @@ public class CallbookActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Add a Call", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Add a Street", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
