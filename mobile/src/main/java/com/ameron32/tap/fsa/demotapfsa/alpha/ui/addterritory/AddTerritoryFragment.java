@@ -92,6 +92,7 @@ public class AddTerritoryFragment extends Fragment {
 //        .show();
 
     getFragmentManager().beginTransaction()
-        .add(new ZoomDialogFragment(), "zoom").commit();
+        .add(new ZoomDialogFragment(), "zoom")
+        .commit();
   }
 }

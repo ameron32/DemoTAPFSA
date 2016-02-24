@@ -61,6 +61,15 @@
         android:parentActivityName=".alpha.ui.selectterritory.TerritoryActivity"
         android:theme="@style/AppTheme.NoActionBar">
     </activity>
+    <activity
+        android:name=".alpha.ui.addcall.AddCallActivity"
+        android:label="@string/title_activity_add_call"
+        android:parentActivityName=".alpha.ui.callbook.CallbookActivity"
+        android:theme="@style/AppTheme.NoActionBar">
+      <meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="com.ameron32.tap.fsa.demotapfsa.alpha.ui.callbook.CallbookActivity"/>
+    </activity>
   </application>
 
 </manifest>

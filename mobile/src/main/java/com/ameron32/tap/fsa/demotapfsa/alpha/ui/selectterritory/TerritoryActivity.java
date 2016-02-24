@@ -10,8 +10,10 @@ import android.view.View;
 
 import com.ameron32.tap.fsa.demotapfsa.R;
 import com.ameron32.tap.fsa.demotapfsa.alpha.ui.addterritory.AddTerritoryActivity;
+import com.ameron32.tap.fsa.demotapfsa.alpha.ui.common.OnAnyItemsCheckedListener;
 
-public class TerritoryActivity extends AppCompatActivity implements DummyTerritoryAdapter.OnAnyItemsCheckedListener {
+public class TerritoryActivity extends AppCompatActivity
+    implements OnAnyItemsCheckedListener {
 
     private static final int ADD_TERRITORY = 541;
 

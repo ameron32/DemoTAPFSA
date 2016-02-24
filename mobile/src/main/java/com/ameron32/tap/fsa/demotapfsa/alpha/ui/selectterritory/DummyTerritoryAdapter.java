@@ -9,6 +9,7 @@ import android.widget.CompoundButton;
 
 import com.ameron32.tap.fsa.demotapfsa.R;
 import com.ameron32.tap.fsa.demotapfsa.alpha.model.Territory;
+import com.ameron32.tap.fsa.demotapfsa.alpha.ui.common.OnAnyItemsCheckedListener;
 
 import java.util.List;
 
@@ -84,10 +85,5 @@ public class DummyTerritoryAdapter extends RecyclerView.Adapter<DummyTerritoryAd
             }
         }
         return false;
-    }
-
-
-    public interface OnAnyItemsCheckedListener {
-        void onAnyItemsCheckedChange(boolean anyItemsChecked);
     }
 }
