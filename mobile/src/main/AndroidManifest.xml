@@ -20,7 +20,7 @@
         </activity>
         <activity android:name=".alpha.MainActivity" />
         <activity
-            android:name=".alpha.ui.selectterritory.TerritoryActivity"
+            android:name=".alpha.ui.territory.TerritoryActivity"
             android:label="@string/title_activity_territory"
             android:parentActivityName=".alpha.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -58,7 +58,7 @@
         <activity
             android:name=".alpha.ui.addterritory.AddTerritoryActivity"
             android:label="@string/title_activity_add_territory"
-            android:parentActivityName=".alpha.ui.selectterritory.TerritoryActivity"
+            android:parentActivityName=".alpha.ui.territory.TerritoryActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".alpha.ui.addcall.AddCallActivity"

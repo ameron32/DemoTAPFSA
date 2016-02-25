@@ -1,4 +1,4 @@
-package com.ameron32.tap.fsa.demotapfsa.alpha.ui.selectterritory;
+package com.ameron32.tap.fsa.demotapfsa.alpha.ui.territory;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -12,7 +12,7 @@ import com.ameron32.tap.fsa.demotapfsa.R;
 import com.ameron32.tap.fsa.demotapfsa.alpha.ui.callbook.CallbookActivity;
 import com.ameron32.tap.fsa.demotapfsa.alpha.ui.notathomes.NotAtHomesActivity;
 import com.ameron32.tap.fsa.demotapfsa.alpha.ui.reports.ReportsActivity;
-import com.ameron32.tap.fsa.demotapfsa.alpha.ui.selectterritory.TerritoryActivity;
+import com.ameron32.tap.fsa.demotapfsa.alpha.ui.territory.TerritoryActivity;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 

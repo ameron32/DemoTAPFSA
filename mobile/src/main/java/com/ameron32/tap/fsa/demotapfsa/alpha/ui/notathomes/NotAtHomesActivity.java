@@ -10,10 +10,7 @@ import android.view.View;
 
 import com.ameron32.tap.fsa.demotapfsa.R;
 import com.ameron32.tap.fsa.demotapfsa.alpha.ui.addstreet.AddStreetActivity;
-import com.ameron32.tap.fsa.demotapfsa.alpha.ui.addterritory.AddTerritoryActivity;
 import com.ameron32.tap.fsa.demotapfsa.alpha.ui.common.OnAnyItemsCheckedListener;
-import com.ameron32.tap.fsa.demotapfsa.alpha.ui.selectterritory.DummyTerritoryAdapter;
-import com.ameron32.tap.fsa.demotapfsa.alpha.ui.selectterritory.TerritoryFragment;
 
 public class NotAtHomesActivity extends AppCompatActivity
         implements OnAnyItemsCheckedListener {

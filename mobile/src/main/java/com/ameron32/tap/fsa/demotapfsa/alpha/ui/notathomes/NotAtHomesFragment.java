@@ -10,8 +10,6 @@ import android.view.ViewGroup;
 
 import com.ameron32.tap.fsa.demotapfsa.R;
 import com.ameron32.tap.fsa.demotapfsa.alpha.model.Street;
-import com.ameron32.tap.fsa.demotapfsa.alpha.model.Territory;
-import com.ameron32.tap.fsa.demotapfsa.alpha.ui.selectterritory.DummyTerritoryAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

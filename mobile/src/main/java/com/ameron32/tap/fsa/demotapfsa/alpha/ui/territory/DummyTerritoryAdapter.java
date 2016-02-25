@@ -1,4 +1,4 @@
-package com.ameron32.tap.fsa.demotapfsa.alpha.ui.selectterritory;
+package com.ameron32.tap.fsa.demotapfsa.alpha.ui.territory;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
