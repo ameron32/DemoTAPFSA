@@ -6,8 +6,8 @@ package com.ameron32.tap.fsa.demotapfsa.alpha.model;
 public class Territory {
 
     public String name;
-    public boolean selected;
     public String territory;
+    public boolean selected;
 
     public Territory(String name, String territory) {
         this.name = name;

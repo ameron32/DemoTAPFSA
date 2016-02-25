@@ -52,10 +52,10 @@ public class CallbookActivity extends AppCompatActivity
         }
     }
 
-    public DummyTerritoryAdapter getAdapter() {
-        TerritoryFragment territoryFragment = (TerritoryFragment) getSupportFragmentManager()
+    public DummyCallAdapter getAdapter() {
+        CallbookFragment callbookFragment = (CallbookFragment) getSupportFragmentManager()
             .findFragmentById(R.id.fragment);
-        return territoryFragment.getAdapter();
+        return callbookFragment.getAdapter();
     }
 
     @Override
@@ -86,7 +86,7 @@ public class CallbookActivity extends AppCompatActivity
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Delete Selected Territory(s)", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Delete Selected Call(s)", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
             }
         };

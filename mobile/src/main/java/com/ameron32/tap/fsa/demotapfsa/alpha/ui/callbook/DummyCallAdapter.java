@@ -1,4 +1,4 @@
-package com.ameron32.tap.fsa.demotapfsa.alpha.ui.selectterritory;
+package com.ameron32.tap.fsa.demotapfsa.alpha.ui.callbook;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,7 +8,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 
 import com.ameron32.tap.fsa.demotapfsa.R;
-import com.ameron32.tap.fsa.demotapfsa.alpha.model.Territory;
+import com.ameron32.tap.fsa.demotapfsa.alpha.model.Call;
 import com.ameron32.tap.fsa.demotapfsa.alpha.ui.common.OnAnyItemsCheckedListener;
 
 import java.util.List;
@@ -16,15 +16,15 @@ import java.util.List;
 /**
  * Created by klemeilleur on 2/22/16.
  */
-public class DummyTerritoryAdapter extends RecyclerView.Adapter<DummyTerritoryAdapter.ViewHolder> {
+public class DummyCallAdapter extends RecyclerView.Adapter<DummyCallAdapter.ViewHolder> {
 
-    private final List<Territory> territories;
+    private final List<Call> calls;
 
     private OnAnyItemsCheckedListener listener;
     private boolean anyItemsCheckedState = false;
 
-    public DummyTerritoryAdapter(List<Territory> territories) {
-        this.territories = territories;
+    public DummyCallAdapter(List<Call> calls) {
+        this.calls = calls;
     }
 
     public void setOnAnyItemsCheckedListener(OnAnyItemsCheckedListener listener) {
@@ -38,14 +38,14 @@ public class DummyTerritoryAdapter extends RecyclerView.Adapter<DummyTerritoryAd
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        Territory territory = territories.get(position);
-        holder.checkBox.setText(territory.name + " (" + territory.territory + ")");
-        holder.checkBox.setSelected(territory.selected);
+        Call call = calls.get(position);
+        holder.checkBox.setText(call.name + "\n (" + call.age + " " + call.gender + ")");
+        holder.checkBox.setSelected(call.selected);
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                Territory territory = territories.get(position);
-                territory.selected = isChecked;
+                Call call = calls.get(position);
+                call.selected = isChecked;
                 notifyAnyItemsCheckedChange();
             }
         });
@@ -53,7 +53,7 @@ public class DummyTerritoryAdapter extends RecyclerView.Adapter<DummyTerritoryAd
 
     @Override
     public int getItemCount() {
-        return territories.size();
+        return calls.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -77,10 +77,10 @@ public class DummyTerritoryAdapter extends RecyclerView.Adapter<DummyTerritoryAd
     }
 
     private boolean isAnyItemsChecked() {
-        if (territories == null || territories.size() == 0) { return false; }
+        if (calls == null || calls.size() == 0) { return false; }
 
-        for (Territory territory : territories) {
-            if (territory.selected) {
+        for (Call call : calls) {
+            if (call.selected) {
                 return true;
             }
         }
