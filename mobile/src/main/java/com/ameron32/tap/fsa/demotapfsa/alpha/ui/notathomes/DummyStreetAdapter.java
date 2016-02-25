@@ -1,11 +1,13 @@
 package com.ameron32.tap.fsa.demotapfsa.alpha.ui.notathomes;
 
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 
 import com.ameron32.tap.fsa.demotapfsa.R;
 import com.ameron32.tap.fsa.demotapfsa.alpha.model.Street;
@@ -39,7 +41,7 @@ public class DummyStreetAdapter extends RecyclerView.Adapter<DummyStreetAdapter.
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         Street street = streets.get(position);
-        holder.checkBox.setText(street.name);
+        holder.textView.setText(street.name);
         holder.checkBox.setSelected(street.selected);
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -47,6 +49,12 @@ public class DummyStreetAdapter extends RecyclerView.Adapter<DummyStreetAdapter.
                 Street street = streets.get(position);
                 street.selected = isChecked;
                 notifyAnyItemsCheckedChange();
+            }
+        });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "Open item " + (position + 1), Snackbar.LENGTH_LONG).show();
             }
         });
     }
@@ -59,10 +67,12 @@ public class DummyStreetAdapter extends RecyclerView.Adapter<DummyStreetAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         public CheckBox checkBox;
+        public TextView textView;
 
         public ViewHolder(View itemView) {
             super(itemView);
             checkBox = (CheckBox) itemView.findViewById(R.id.checkBox);
+            textView = (TextView) itemView.findViewById(android.R.id.text1);
         }
     }
 
