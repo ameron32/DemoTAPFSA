@@ -4,7 +4,6 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,8 +60,8 @@ public class AddStreetFragment extends Fragment {
         return false;
     }
 
-    private RecyclerView.Adapter getAdapter() {
-        return new NumberRangeAdapter(getFirstNumber(), getLastNumber(), interval);
+    private DummyNumberRangeAdapter getAdapter() {
+        return new DummyNumberRangeAdapter(getFirstNumber(), getLastNumber(), interval);
     }
 
     private int getFirstNumber() throws NumberFormatException {

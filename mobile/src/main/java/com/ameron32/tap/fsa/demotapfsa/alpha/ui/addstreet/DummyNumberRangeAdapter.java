@@ -1,12 +1,10 @@
 package com.ameron32.tap.fsa.demotapfsa.alpha.ui.addstreet;
 
-import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 
 import com.ameron32.tap.fsa.demotapfsa.R;
@@ -17,12 +15,12 @@ import java.util.List;
 /**
  * Created by klemeilleur on 2/24/16.
  */
-public class NumberRangeAdapter extends RecyclerView.Adapter<NumberRangeAdapter.ViewHolder> {
+public class DummyNumberRangeAdapter extends RecyclerView.Adapter<DummyNumberRangeAdapter.ViewHolder> {
 
     List<String> numbers;
     SparseArray<Boolean> checked;
 
-    public NumberRangeAdapter(int start, int end, int interval) {
+    public DummyNumberRangeAdapter(int start, int end, int interval) {
         numbers = new ArrayList<>();
         checked = new SparseArray<>();
         for (int i = start; i <= end; i += interval) {
