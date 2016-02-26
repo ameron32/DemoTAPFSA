@@ -1,5 +1,7 @@
 package com.ameron32.tap.fsa.demotapfsa.alpha.ui.addcall;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,12 +12,24 @@ import android.view.View;
 
 import com.ameron32.tap.fsa.demotapfsa.R;
 import com.ameron32.tap.fsa.demotapfsa.alpha.ui.addterritory.AddTerritoryActivity;
+import com.ameron32.tap.fsa.demotapfsa.alpha.ui.callbook.CallbookActivity;
 import com.ameron32.tap.fsa.demotapfsa.alpha.ui.common.OnAnyItemsCheckedListener;
 
 public class AddCallActivity extends AppCompatActivity implements OnAnyItemsCheckedListener {
 
   public static final int RESULT_SAVE_COMPLETE = 712;
   private static final int ADD_VISIT = 976;
+
+  public static Intent makeIntent(Context context) {
+    Intent intent = new Intent(context, AddCallActivity.class);
+    return intent;
+  }
+
+  public static Intent makeIntent(Context context, String name) {
+    Intent intent = makeIntent(context);
+    intent.putExtra("name", name);
+    return intent;
+  }
 
   FloatingActionButton fab;
 
@@ -27,7 +41,11 @@ public class AddCallActivity extends AppCompatActivity implements OnAnyItemsChec
     setSupportActionBar(toolbar);
 
     fab = (FloatingActionButton) findViewById(R.id.fab);
-    setSaveButton();
+    if (isNew()) {
+      setStateCreate();
+    } else {
+      setStateView();
+    }
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
   }
 
@@ -44,15 +62,16 @@ public class AddCallActivity extends AppCompatActivity implements OnAnyItemsChec
   }
 
   public DummyVisitAdapter getAdapter() {
-    AddCallFragment addCallFragment = (AddCallFragment) getSupportFragmentManager()
-            .findFragmentById(R.id.fragment);
-    return addCallFragment.getAdapter();
+    return getAddCallFragment().getAdapter();
   }
 
   public void enableAdapter() {
-    AddCallFragment addCallFragment = (AddCallFragment) getSupportFragmentManager()
+    getAddCallFragment().enableAdapter();
+  }
+
+  private AddCallFragment getAddCallFragment() {
+    return (AddCallFragment) getSupportFragmentManager()
             .findFragmentById(R.id.fragment);
-    addCallFragment.enableAdapter();
   }
 
   @Override
@@ -65,11 +84,61 @@ public class AddCallActivity extends AppCompatActivity implements OnAnyItemsChec
   }
 
   private void enableListChecking() {
-    getAdapter().setOnAnyItemsCheckedListener(AddCallActivity.this);
+    if (getAdapter() != null) {
+      getAdapter().setOnAnyItemsCheckedListener(AddCallActivity.this);
+    }
   }
 
   private void disableListChecking() {
-    getAdapter().setOnAnyItemsCheckedListener(null);
+    if (getAdapter() != null) {
+      getAdapter().setOnAnyItemsCheckedListener(null);
+    }
+  }
+
+  private void enableEditing() {
+    getAddCallFragment().enableEditing();
+  }
+
+  private void disableEditing() {
+    getAddCallFragment().disableEditing();
+  }
+
+  private void setStateCreate() {
+    setSaveButton();
+    hideEditButton();
+  }
+
+  private void setStateView() {
+    setAddButton();
+    enableListChecking();
+    disableEditing();
+    showEditButton();
+  }
+
+  private void setStateUpdate() {
+    setSaveButton();
+    disableListChecking();
+    enableEditing();
+    hideEditButton();
+  }
+
+  private void hideEditButton() {
+    findViewById(R.id.editButton).setVisibility(View.GONE);
+    findViewById(R.id.editButton).setOnClickListener(null);
+  }
+
+  private void showEditButton() {
+    findViewById(R.id.editButton).setVisibility(View.VISIBLE);
+    findViewById(R.id.editButton).setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        editButtonClicked();
+      }
+    });
+  }
+
+  private void editButtonClicked() {
+    setStateUpdate();
   }
 
   public View.OnClickListener getSaveListener() {
@@ -77,8 +146,7 @@ public class AddCallActivity extends AppCompatActivity implements OnAnyItemsChec
       @Override
       public void onClick(View v) {
         enableAdapter();
-        enableListChecking();
-        setAddButton();
+        setStateView();
       }
     };
   }
@@ -117,5 +185,20 @@ public class AddCallActivity extends AppCompatActivity implements OnAnyItemsChec
   private void setDeleteButton() {
     fab.setImageResource(R.drawable.ic_delete);
     fab.setOnClickListener(getDeleteListener());
+  }
+
+  public boolean isNew() {
+    Bundle bundle = getIntent().getExtras();
+    if (bundle == null) {
+      return true;
+    }
+    return false;
+  }
+
+  public Bundle getIntentBundle() {
+    if (isNew()) {
+      return null;
+    }
+    return getIntent().getExtras();
   }
 }

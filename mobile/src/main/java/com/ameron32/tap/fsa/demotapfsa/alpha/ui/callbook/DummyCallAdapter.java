@@ -1,5 +1,6 @@
 package com.ameron32.tap.fsa.demotapfsa.alpha.ui.callbook;
 
+import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,7 +12,9 @@ import android.widget.TextView;
 
 import com.ameron32.tap.fsa.demotapfsa.R;
 import com.ameron32.tap.fsa.demotapfsa.alpha.model.Call;
+import com.ameron32.tap.fsa.demotapfsa.alpha.ui.addcall.AddCallActivity;
 import com.ameron32.tap.fsa.demotapfsa.alpha.ui.common.OnAnyItemsCheckedListener;
+import com.ameron32.tap.fsa.demotapfsa.alpha.ui.common.OnItemClickedListener;
 
 import java.util.List;
 
@@ -23,6 +26,7 @@ public class DummyCallAdapter extends RecyclerView.Adapter<DummyCallAdapter.View
     private final List<Call> calls;
 
     private OnAnyItemsCheckedListener listener;
+    private OnItemClickedListener<Call> itemClickListener;
     private boolean anyItemsCheckedState = false;
 
     public DummyCallAdapter(List<Call> calls) {
@@ -33,6 +37,10 @@ public class DummyCallAdapter extends RecyclerView.Adapter<DummyCallAdapter.View
         this.listener = listener;
     }
 
+    public void setOnItemClickedListener(OnItemClickedListener<Call> itemClickListener) {
+        this.itemClickListener = itemClickListener;
+    }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_word_list_alpha, parent, false));
@@ -40,7 +48,7 @@ public class DummyCallAdapter extends RecyclerView.Adapter<DummyCallAdapter.View
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        Call call = calls.get(position);
+        final Call call = calls.get(position);
         holder.textView.setText(call.name + "\n (" + call.age + " " + call.gender + ")");
         holder.checkBox.setSelected(call.selected);
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -54,7 +62,7 @@ public class DummyCallAdapter extends RecyclerView.Adapter<DummyCallAdapter.View
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "Open item "+ (position+1), Snackbar.LENGTH_LONG).show();
+                itemClickListener.onItemClicked(call, position);
             }
         });
     }

@@ -10,8 +10,13 @@
     tools:context=".alpha.ui.addcall.AddCallFragment"
     tools:showIn="@layout/activity_add_call_alpha">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
+android:layout_toLeftOf="@+id/editButton"
         android:layout_height="wrap_content">
 
         <EditText
@@ -20,6 +25,13 @@
             android:layout_height="wrap_content"
             android:hint="Address" />
     </android.support.design.widget.TextInputLayout>
+        <Button
+            android:id="@+id/editButton"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:text="EDIT"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"

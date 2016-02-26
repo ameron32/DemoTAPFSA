@@ -9,11 +9,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.ameron32.tap.fsa.demotapfsa.R;
+import com.ameron32.tap.fsa.demotapfsa.alpha.model.Call;
 import com.ameron32.tap.fsa.demotapfsa.alpha.ui.addcall.AddCallActivity;
 import com.ameron32.tap.fsa.demotapfsa.alpha.ui.common.OnAnyItemsCheckedListener;
+import com.ameron32.tap.fsa.demotapfsa.alpha.ui.common.OnItemClickedListener;
 
 public class CallbookActivity extends AppCompatActivity
-    implements OnAnyItemsCheckedListener {
+    implements OnAnyItemsCheckedListener, OnItemClickedListener<Call> {
 
     private static final int ADD_CALL = 364;
 
@@ -35,6 +37,14 @@ public class CallbookActivity extends AppCompatActivity
     protected void onResume() {
         super.onResume();
         getAdapter().setOnAnyItemsCheckedListener(this);
+        getAdapter().setOnItemClickedListener(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        getAdapter().setOnAnyItemsCheckedListener(null);
+        getAdapter().setOnItemClickedListener(null);
     }
 
     @Override
@@ -64,11 +74,17 @@ public class CallbookActivity extends AppCompatActivity
         }
     }
 
+    @Override
+    public void onItemClicked(Call item, int position) {
+        Intent intent = AddCallActivity.makeIntent(CallbookActivity.this, item.name);
+        startActivityForResult(intent, ADD_CALL);
+    }
+
     public View.OnClickListener getAddListener() {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CallbookActivity.this, AddCallActivity.class);
+                Intent intent = AddCallActivity.makeIntent(CallbookActivity.this);
                 startActivityForResult(intent, ADD_CALL);
             }
         };
