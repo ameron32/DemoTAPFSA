@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +52,14 @@ public class AddCallFragment extends Fragment {
         String name = getIntentBundle().getString("name");
         TextView nameView = (TextView) view.findViewById(R.id.name);
         nameView.setText(name);
+
+        String address = getIntentBundle().getString("address");
+        TextView addressView = (TextView) view.findViewById(R.id.address);
+        addressView.setText(address);
+
+        String age = getIntentBundle().getString("age");
+        TextView ageView = (TextView) view.findViewById(R.id.age);
+        ageView.setText(age);
     }
 
     public void enableAdapter() {
@@ -95,6 +104,7 @@ public class AddCallFragment extends Fragment {
 
     private void lockEditViews() {
         for (EditText e : getEditViews()) {
+            e.clearFocus();
             e.setEnabled(false);
         }
     }
