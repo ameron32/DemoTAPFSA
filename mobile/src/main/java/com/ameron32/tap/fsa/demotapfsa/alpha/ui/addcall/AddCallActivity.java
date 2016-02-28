@@ -109,6 +109,7 @@ public class AddCallActivity extends AppCompatActivity implements OnAnyItemsChec
   }
 
   private void setStateView() {
+    enableAdapter();
     setAddButton();
     enableListChecking();
     disableEditing();
@@ -145,7 +146,6 @@ public class AddCallActivity extends AppCompatActivity implements OnAnyItemsChec
     return new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        enableAdapter();
         setStateView();
       }
     };

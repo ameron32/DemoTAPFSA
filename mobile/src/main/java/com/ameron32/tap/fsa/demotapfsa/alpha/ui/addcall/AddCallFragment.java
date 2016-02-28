@@ -63,8 +63,12 @@ public class AddCallFragment extends Fragment {
     }
 
     public void enableAdapter() {
-        adapter = new DummyVisitAdapter(getVisitList());
-        recyclerView.setAdapter(adapter);
+        if (adapter == null) {
+            adapter = new DummyVisitAdapter(getVisitList());
+            if (recyclerView.getAdapter() == null) {
+                recyclerView.setAdapter(adapter);
+            }
+        }
     }
 
     private List<Visit> getVisitList() {

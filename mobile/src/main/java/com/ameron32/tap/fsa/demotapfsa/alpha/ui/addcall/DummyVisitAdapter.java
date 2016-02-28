@@ -1,8 +1,8 @@
 package com.ameron32.tap.fsa.demotapfsa.alpha.ui.addcall;
 
-import android.app.AlertDialog;
-import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatDialog;
 import android.support.v7.widget.RecyclerView;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +11,6 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.ameron32.tap.fsa.demotapfsa.R;
-import com.ameron32.tap.fsa.demotapfsa.alpha.model.Territory;
 import com.ameron32.tap.fsa.demotapfsa.alpha.model.Visit;
 import com.ameron32.tap.fsa.demotapfsa.alpha.ui.common.OnAnyItemsCheckedListener;
 
@@ -56,12 +55,21 @@ public class DummyVisitAdapter extends RecyclerView.Adapter<DummyVisitAdapter.Vi
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new AlertDialog.Builder(v.getContext())
-                        .setTitle(visit.type + ": Notes")
-                        .setMessage(visit.text)
-                        .create().show();
+                AppCompatDialog dialog = new AppCompatDialog(v.getContext());
+                dialog.setTitle("(Notes) "+ visit.type);
+                TextView bodyTextView = new TextView(v.getContext());
+                bodyTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+                bodyTextView.setPadding(dp(v,16), dp(v,16), dp(v,16), dp(v,16));
+                bodyTextView.setText(visit.text);
+                dialog.setContentView(bodyTextView);
+                dialog.show();
             }
         });
+    }
+
+    public int dp(View v, int dps){
+        final float scale = v.getContext().getResources().getDisplayMetrics().density;
+        return (int) (dps * scale + 0.5f);
     }
 
     @Override
