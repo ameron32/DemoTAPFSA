@@ -6,6 +6,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import com.ameron32.tap.fsa.demotapfsa.R;
 import com.ameron32.tap.fsa.demotapfsa.alpha.model.Visit;
 import com.ameron32.tap.fsa.demotapfsa.alpha.ui.common.OnAnyItemsCheckedListener;
+import com.ameron32.tap.fsa.demotapfsa.alpha.ui.common.OnItemClickedListener;
 
 import java.util.List;
 
@@ -24,6 +26,7 @@ public class DummyVisitAdapter extends RecyclerView.Adapter<DummyVisitAdapter.Vi
     private final List<Visit> visits;
 
     private OnAnyItemsCheckedListener listener;
+    private OnItemClickedListener<Visit> itemClickedListener;
     private boolean anyItemsCheckedState = false;
 
     public DummyVisitAdapter(List<Visit> visits) {
@@ -32,6 +35,10 @@ public class DummyVisitAdapter extends RecyclerView.Adapter<DummyVisitAdapter.Vi
 
     public void setOnAnyItemsCheckedListener(OnAnyItemsCheckedListener listener) {
         this.listener = listener;
+    }
+
+    public void setOnItemClickedListener(OnItemClickedListener<Visit> itemClickedListener) {
+        this.itemClickedListener = itemClickedListener;
     }
 
     @Override
@@ -57,11 +64,19 @@ public class DummyVisitAdapter extends RecyclerView.Adapter<DummyVisitAdapter.Vi
             public void onClick(View v) {
                 AppCompatDialog dialog = new AppCompatDialog(v.getContext());
                 dialog.setTitle("(Notes) "+ visit.type);
-                TextView bodyTextView = new TextView(v.getContext());
+                View dialogView = LayoutInflater.from(v.getContext()).inflate(R.layout.dialog_text_with_edit_button_alpha, null);
+                TextView bodyTextView = (TextView) dialogView.findViewById(R.id.textView);
+                Button editButton = (Button) dialogView.findViewById(R.id.button);
                 bodyTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-                bodyTextView.setPadding(dp(v,16), dp(v,16), dp(v,16), dp(v,16));
+                bodyTextView.setPadding(dp(v, 16), dp(v, 16), dp(v, 16), dp(v, 16));
                 bodyTextView.setText(visit.text);
-                dialog.setContentView(bodyTextView);
+                editButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        itemClickedListener.onItemClicked(visit, position);
+                    }
+                });
+                dialog.setContentView(dialogView);
                 dialog.show();
             }
         });

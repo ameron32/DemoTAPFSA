@@ -1,83 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ameron32.tap.fsa.demotapfsa">
+<manifest package="com.ameron32.tap.fsa.demotapfsa"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.WAKE_LOCK"/>
+  <uses-permission android:name="android.permission.INTERNET"/>
 
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainMenuActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+  <application
+      android:allowBackup="true"
+      android:icon="@mipmap/ic_launcher"
+      android:label="@string/app_name"
+      android:supportsRtl="true"
+      android:theme="@style/AppTheme">
+    <activity android:name=".MainMenuActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".alpha.MainActivity" />
-        <activity
-            android:name=".alpha.ui.territory.TerritoryActivity"
-            android:label="@string/title_activity_territory"
-            android:parentActivityName=".alpha.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ameron32.tap.fsa.demotapfsa.alpha.MainActivity" />
-        </activity>
-        <activity
-            android:name=".alpha.ui.callbook.CallbookActivity"
-            android:label="@string/title_activity_callbook"
-            android:parentActivityName=".alpha.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ameron32.tap.fsa.demotapfsa.alpha.MainActivity" />
-        </activity>
-        <activity
-            android:name=".alpha.ui.notathomes.NotAtHomesActivity"
-            android:label="@string/title_activity_not_at_homes"
-            android:parentActivityName=".alpha.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ameron32.tap.fsa.demotapfsa.alpha.MainActivity" />
-        </activity>
-        <activity
-            android:name=".alpha.ui.reports.ReportsActivity"
-            android:label="@string/title_activity_reports"
-            android:parentActivityName=".alpha.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ameron32.tap.fsa.demotapfsa.alpha.MainActivity" />
-        </activity>
-        <activity
-            android:name=".alpha.ui.addterritory.AddTerritoryActivity"
-            android:label="@string/title_activity_add_territory"
-            android:parentActivityName=".alpha.ui.territory.TerritoryActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name=".alpha.ui.addcall.AddCallActivity"
-            android:label="@string/title_activity_add_call"
-            android:parentActivityName=".alpha.ui.callbook.CallbookActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ameron32.tap.fsa.demotapfsa.alpha.ui.callbook.CallbookActivity" />
-        </activity>
-        <activity
-            android:name=".alpha.ui.addstreet.AddStreetActivity"
-            android:label="@string/title_activity_add_street"
-            android:parentActivityName=".alpha.ui.notathomes.NotAtHomesActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.ameron32.tap.fsa.demotapfsa.alpha.ui.notathomes.NotAtHomesActivity" />
-        </activity>
-    </application>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+    <activity android:name=".alpha.MainActivity"/>
+    <activity
+        android:name=".alpha.ui.territory.TerritoryActivity"
+        android:label="@string/title_activity_territory"
+        android:parentActivityName=".alpha.MainActivity"
+        android:theme="@style/AppTheme.NoActionBar">
+      <meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="com.ameron32.tap.fsa.demotapfsa.alpha.MainActivity"/>
+    </activity>
+    <activity
+        android:name=".alpha.ui.callbook.CallbookActivity"
+        android:label="@string/title_activity_callbook"
+        android:parentActivityName=".alpha.MainActivity"
+        android:theme="@style/AppTheme.NoActionBar">
+      <meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="com.ameron32.tap.fsa.demotapfsa.alpha.MainActivity"/>
+    </activity>
+    <activity
+        android:name=".alpha.ui.notathomes.NotAtHomesActivity"
+        android:label="@string/title_activity_not_at_homes"
+        android:parentActivityName=".alpha.MainActivity"
+        android:theme="@style/AppTheme.NoActionBar">
+      <meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="com.ameron32.tap.fsa.demotapfsa.alpha.MainActivity"/>
+    </activity>
+    <activity
+        android:name=".alpha.ui.reports.ReportsActivity"
+        android:label="@string/title_activity_reports"
+        android:parentActivityName=".alpha.MainActivity"
+        android:theme="@style/AppTheme.NoActionBar">
+      <meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="com.ameron32.tap.fsa.demotapfsa.alpha.MainActivity"/>
+    </activity>
+    <activity
+        android:name=".alpha.ui.addterritory.AddTerritoryActivity"
+        android:label="@string/title_activity_add_territory"
+        android:parentActivityName=".alpha.ui.territory.TerritoryActivity"
+        android:theme="@style/AppTheme.NoActionBar"/>
+    <activity
+        android:name=".alpha.ui.addcall.AddCallActivity"
+        android:label="@string/title_activity_add_call"
+        android:parentActivityName=".alpha.ui.callbook.CallbookActivity"
+        android:theme="@style/AppTheme.NoActionBar">
+      <meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="com.ameron32.tap.fsa.demotapfsa.alpha.ui.callbook.CallbookActivity"/>
+    </activity>
+    <activity
+        android:name=".alpha.ui.addstreet.AddStreetActivity"
+        android:label="@string/title_activity_add_street"
+        android:parentActivityName=".alpha.ui.notathomes.NotAtHomesActivity"
+        android:theme="@style/AppTheme.NoActionBar">
+      <meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="com.ameron32.tap.fsa.demotapfsa.alpha.ui.notathomes.NotAtHomesActivity"/>
+    </activity>
+    <activity
+        android:name=".alpha.ui.addvisit.AddVisitActivity"
+        android:label="@string/title_activity_add_visit"
+        android:parentActivityName=".alpha.ui.callbook.CallbookActivity"
+        android:theme="@style/AppTheme.NoActionBar">
+      <meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="com.ameron32.tap.fsa.demotapfsa.alpha.ui.callbook.CallbookActivity"/>
+    </activity>
+  </application>
 
 </manifest>

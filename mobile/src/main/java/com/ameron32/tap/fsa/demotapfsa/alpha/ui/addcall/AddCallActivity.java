@@ -11,11 +11,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.ameron32.tap.fsa.demotapfsa.R;
+import com.ameron32.tap.fsa.demotapfsa.alpha.model.Visit;
 import com.ameron32.tap.fsa.demotapfsa.alpha.ui.addterritory.AddTerritoryActivity;
+import com.ameron32.tap.fsa.demotapfsa.alpha.ui.addvisit.AddVisitActivity;
 import com.ameron32.tap.fsa.demotapfsa.alpha.ui.callbook.CallbookActivity;
 import com.ameron32.tap.fsa.demotapfsa.alpha.ui.common.OnAnyItemsCheckedListener;
+import com.ameron32.tap.fsa.demotapfsa.alpha.ui.common.OnItemClickedListener;
 
-public class AddCallActivity extends AppCompatActivity implements OnAnyItemsCheckedListener {
+public class AddCallActivity extends AppCompatActivity implements OnAnyItemsCheckedListener, OnItemClickedListener<Visit> {
 
   public static final int RESULT_SAVE_COMPLETE = 712;
   private static final int ADD_VISIT = 976;
@@ -83,15 +86,22 @@ public class AddCallActivity extends AppCompatActivity implements OnAnyItemsChec
     }
   }
 
+  @Override
+  public void onItemClicked(Visit item, int position) {
+    startActivityForResult(AddVisitActivity.makeIntent(this, item.type, item.text), ADD_VISIT);
+  }
+
   private void enableListChecking() {
     if (getAdapter() != null) {
       getAdapter().setOnAnyItemsCheckedListener(AddCallActivity.this);
+      getAdapter().setOnItemClickedListener(AddCallActivity.this);
     }
   }
 
   private void disableListChecking() {
     if (getAdapter() != null) {
       getAdapter().setOnAnyItemsCheckedListener(null);
+      getAdapter().setOnItemClickedListener(null);
     }
   }
 
@@ -160,9 +170,7 @@ public class AddCallActivity extends AppCompatActivity implements OnAnyItemsChec
     return new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        // TODO add new visit dialog
-        Snackbar.make(view, "Add Visit", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show();
+        startActivityForResult(AddVisitActivity.makeIntent(AddCallActivity.this), ADD_VISIT);
       }
     };
   }
