@@ -29,6 +29,17 @@ public class DummyNumberRangeAdapter extends RecyclerView.Adapter<DummyNumberRan
         }
     }
 
+    public DummyNumberRangeAdapter() {
+        numbers = new ArrayList<>();
+        checked = new SparseArray<>();
+    }
+
+    public void add(int number) {
+        numbers.add(String.valueOf(number));
+        checked.put(number, true);
+        notifyDataSetChanged();
+    }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater.from(parent.getContext())

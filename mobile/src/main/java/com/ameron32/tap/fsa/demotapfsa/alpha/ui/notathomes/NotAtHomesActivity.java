@@ -9,7 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.ameron32.tap.fsa.demotapfsa.R;
-import com.ameron32.tap.fsa.demotapfsa.alpha.ui.addstreet.AddStreetActivity;
+import com.ameron32.tap.fsa.demotapfsa.beta.ui.addstreet.AddStreetActivity;
 import com.ameron32.tap.fsa.demotapfsa.alpha.ui.common.OnAnyItemsCheckedListener;
 
 public class NotAtHomesActivity extends AppCompatActivity

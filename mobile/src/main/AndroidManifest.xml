@@ -87,6 +87,15 @@
           android:name="android.support.PARENT_ACTIVITY"
           android:value="com.ameron32.tap.fsa.demotapfsa.alpha.ui.callbook.CallbookActivity"/>
     </activity>
+    <activity
+        android:name=".beta.ui.addstreet.AddStreetActivity"
+        android:label="@string/title_activity_add_street"
+        android:parentActivityName=".alpha.ui.notathomes.NotAtHomesActivity"
+        android:theme="@style/AppTheme.NoActionBar">
+      <meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value="com.ameron32.tap.fsa.demotapfsa.alpha.ui.notathomes.NotAtHomesActivity"/>
+    </activity>
   </application>
 
 </manifest>
